@@ -101,7 +101,27 @@ console.log(quotes);
  * `getRandomQuote` function
 ***/
 
+/*
+This functon will do three things:
+  1. use Math.floor.Math.random with the length of quotes to generate a random number. 
+  2. use brack notationa and random number variable to get a quote from the array.
+  3. return the random quote object.
+*/
 
+//Create a get random quote function called getRandomQuote here:
+function getRandomQuote(){
+  // Create a variable and store a random number between 0 and the array's length
+  let randomNumber = Math.floor(Math.random() * quotes.length);
+
+  //This is for testing purpose only to make sure random number is being generated
+  console.log(`The random number is: ${randomNumber}`);
+
+  //get and return a random quote with the bracket notationa and random number
+  return quotes[randomNumber];
+}
+
+//This is for testing purposes only to make sure a random quote object is being generated
+console.log(getRandomQuote());
 
 /***
  * `printQuote` function
