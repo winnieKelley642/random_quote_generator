@@ -22,23 +22,25 @@ Grading guidelines checklist:
     ~ at least one object has citation property -> done
     ~ at least one object has year property -> done
       ~ Bonus:
-        ~ At least one object has at least one additional property, such as tags -> done (tags)
-        ~ At least one additional property prints to the page with the its quote
+        ~ At least one object has at least one additional property, such as tags -> done (I added tags) 
+        ~ At least one additional property prints to the page with the its quote -> done
   ~ printQuote function:
-    ~ name printQuote
-    ~ calls getRandomeQuote function
-    ~ print a quote and a source property with every quote
-    ~ prints a citation property with at leas one quote
-    ~ prints a year property with at least one quote
-    ~ print quotes match the format, layout and styles of the example quote in the index.html file
+    ~ name printQuote -> (done)
+    ~ calls getRandomeQuote function -> (done)
+    ~ print a quote and a source property with every quote -> (done)
+    ~ prints a citation property with at leas one quote -> (done)
+    ~ prints a year property with at least one quote -> (done)
+    ~ print quotes match the format, layout and styles of the example quote in the index.html file -> (done)
       - Bonus:
-        - Quotes automatically refresh after intervals
+        - Quotes automatically refresh after intervals 
         - Background colour changes to a random colour each time the quote refreshes
 */
 
 
 //Beginning of code
 
+//declaring my variables:
+let message = '';
 /*** 
  * `quotes` array 
 ***/
@@ -95,7 +97,7 @@ Grading guidelines checklist:
     },
   ];
 //These are for testing purpose only, will comment out later
-console.log(quotes);
+//console.log(quotes);
 
 /***
  * `getRandomQuote` function
@@ -114,22 +116,74 @@ function getRandomQuote(){
   let randomNumber = Math.floor(Math.random() * quotes.length);
 
   //This is for testing purpose only to make sure random number is being generated
-  console.log(`The random number is: ${randomNumber}`);
+  //console.log(`The random number is: ${randomNumber}`);
 
   //get and return a random quote with the bracket notationa and random number
   return quotes[randomNumber];
 }
 
 //This is for testing purposes only to make sure a random quote object is being generated
-console.log(getRandomQuote());
+//console.log(getRandomQuote());
 
 /***
  * `printQuote` function
 ***/
+
+//Time to display the random quote!
+//This function should show when the user clicks on the "Show another quote" button.
+//This function is called by the line of code at the end of this file created by Treehouse
+
+/*
+When the "Show another quote button is clicked, this function will be called and it will:
+  1. get a random quote object and all of it's properties using the getRandomQuote function
+  2. it will print out the quote, and using conditional statements, I will be printing out other properties such as source, citation, year and tag ONLY if the property isn't null.
+*/
+
+//Create printQuote function here:
+function printQuote(){
+  //get the quote object using the getRandomQuote function that is already created.
+  let chosenQuote = getRandomQuote();
+  
+  //This is for testing purpose only. Making sure that a random quote object is passed into chosenQuote
+  //console.log(chosenQuote);
+
+  //Here I can just go ahead and print the quote to the user or I can run an if statment to make sure there is a quote. However, there is no reason for why there wouldn't be a quote. So for now I will just print the randomly selected quote to the user. Maybe I'll add an if statement later.
+  //message = chosenQuote.quote;
+
+
+  //This is where I will start figuring out what properties does the quote object have, so the right information can be displayed.
+  //I am using the if statment and the dot notation to check each property (quote, source, citation, year and tag).
+  //if the object has the property, it will display the information
+
+  //instructions for this project wants the first two elements (quote and source) to be with <p> tag and leaving the second one without </p>
+  if (chosenQuote.quote != null){
+    message = `<p class = "quote"> ${chosenQuote.quote} </p>`;
+  }
+  if (chosenQuote.source != null){
+    message += `<p class = "source"> ${chosenQuote.source}`;
+  }
+
+  //instructions wants the rest to be concatenate with a <span></span> 
+  if (chosenQuote.citation != null){
+    message += `<span class = "citation"> ${chosenQuote.citation}`;
+  }
+  if (chosenQuote.year != null){
+    //the instructions wants the </p> tag to be After the two if statements, concatenate the closing </p> 
+    message += `<span class = "year"> ${chosenQuote.year} </p>`;
+  }
+  if (chosenQuote.tag != null){
+    message += `<span class = "tag"> ${chosenQuote.tag}`;
+  }
+  //change the quote to the randomly selected quote
+  document.getElementById('quote-box').innerHTML = message;  
+
+  //For testing purposes only
+  console.log(message);
+}
 
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
-//document.getElementById('load-quote').addEventListener("click", printQuote, false);
+document.getElementById('load-quote').addEventListener("click", printQuote, false);
