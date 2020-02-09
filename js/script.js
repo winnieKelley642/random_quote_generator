@@ -25,15 +25,15 @@ Grading guidelines checklist:
         ~ At least one object has at least one additional property, such as tags -> done (I added tags) 
         ~ At least one additional property prints to the page with the its quote -> done
   ~ printQuote function:
-    ~ name printQuote -> (done)
-    ~ calls getRandomeQuote function -> (done)
-    ~ print a quote and a source property with every quote -> (done)
-    ~ prints a citation property with at leas one quote -> (done)
-    ~ prints a year property with at least one quote -> (done)
-    ~ print quotes match the format, layout and styles of the example quote in the index.html file -> (done)
+    ~ name printQuote -> done
+    ~ calls getRandomeQuote function -> done
+    ~ print a quote and a source property with every quote -> done
+    ~ prints a citation property with at leas one quote -> done
+    ~ prints a year property with at least one quote -> done
+    ~ print quotes match the format, layout and styles of the example quote in the index.html file -> done
       - Bonus:
         - Quotes automatically refresh after intervals 
-        - Background colour changes to a random colour each time the quote refreshes
+        - Background colour changes to a random colour each time the quote refreshes -> done
 */
 
 
@@ -167,6 +167,33 @@ function generateRandomColor(){
 }
 
 /***
+ * `calculateOppositeColor` function
+ * So I do not have the best eye sight and the white font on the different background colours are very difficult for me to read. 
+ * Also the chances are very low, but what the new background colour is white (255,255,255), then a new colour font would be needed.
+ * So I looked up on Google how to create the opposite colour. I thought about using black font, but then the problem of generating a black background is still a possibility.
+ */
+
+ // To generate an opposite colour, use 255 - the randomly generated number for each of the three colours
+ // update the new colour
+ // return the new colour for the font
+
+ // Create a calculateOppositeColor function
+ function calculateOppositeColor(){
+   // Create a variable to store the rgb colour
+   let oppositeColor;
+   red = 255 - red;
+   green = 255 - green;
+   blue = 255 - blue;
+
+   // Concatenate the three numbers to create a new rgb colour and store it in the oppostieColor variable
+   oppositeColor = `rgb(${red}, ${green}, ${blue})`;
+   //This is for testing purposes, show the new font colour
+   console.log(`oppositeColor: ${oppositeColor}`);
+   
+   //return this rgb to update the font colour
+   return oppositeColor;
+ }
+/***
  * `printQuote` function
 ***/
 
@@ -188,6 +215,9 @@ function printQuote(){
   //get the new rgb from generateRandomColor function 
   let newBackgroundColor = generateRandomColor();
   
+  //get the rgb from calculateOppositeColor function
+  let newFontColor = calculateOppositeColor();
+
   //This is for testing purpose only. Making sure that a random quote object is passed into chosenQuote
   //console.log(chosenQuote);
 
@@ -226,6 +256,9 @@ function printQuote(){
 
   //change the background colour on click of the button
   document.body.style.backgroundColor = newBackgroundColor;
+
+  //change the font colour on click of the button
+  document.body.style.color = newFontColor;
 }
 
 /***
