@@ -138,6 +138,7 @@ function getRandomQuote(){
 //console.log(getRandomQuote());
 
 /***
+ * This is for exceeding expectations: Random background colour change
  * `generateRandomColor` function
 ***/
 
@@ -261,6 +262,12 @@ function printQuote(){
   document.body.style.color = newFontColor;
 }
 
+/***
+ * This is for the exceed expectations grade: Auto-refresh
+ */
+
+ //Setting timer to call the printQuote function so it generates a new quote and new background and text colour every 10 seconds.
+ setInterval(printQuote, 10000);
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
