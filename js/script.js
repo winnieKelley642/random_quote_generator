@@ -41,6 +41,10 @@ Grading guidelines checklist:
 
 //declaring my variables:
 let message = '';
+let red;
+let green;
+let blue;
+
 /*** 
  * `quotes` array 
 ***/
@@ -54,7 +58,7 @@ let message = '';
       source: 'Maurice Wilkens, designer of EDSAC ',
       citation: 'When Maurice Wilkens discovers debugging' ,
       year: 1949,
-      tag: null
+      tag: 'debugging'
     },
     {
       quote: 'Testing leads to failure, and failure leads to understanding.',
@@ -95,6 +99,14 @@ let message = '';
       year: null,
       tag: null
     },
+    
+    {
+      quote: 'Everything around you that you call life was made up by people that were no smarter than you and you can change it, you can influence it, you can build your own things that other people can use. Once you learn that, you\'ll never be the same again.',
+      source: 'Steve Jobs',
+      citation: null,
+      year: null,
+      tag: 'life'
+    }
   ];
 //These are for testing purpose only, will comment out later
 //console.log(quotes);
@@ -126,6 +138,35 @@ function getRandomQuote(){
 //console.log(getRandomQuote());
 
 /***
+ * `generateRandomColor` function
+***/
+
+// Create random colour for background change.
+// I will be using RGB colours
+// I have already previously set the variables, red, green and blue
+// RGB colours has three numbers, each number is anything between 0 and 255
+// So I will randomly generate three numbers and return it so that I can change the background colour.
+
+//Create a generateRandomColor function
+function generateRandomColor(){
+  //Create a variable to store the rgb colour
+  let randomNumberForColor;
+
+  //generate a random number between 0 and 255 to assign to red, green and blue
+  red = Math.floor(Math.random() * 255);
+  green = Math.floor(Math.random() * 255);
+  blue = Math.floor(Math.random() * 255);
+
+  //Concatenate the three numbers to create a new rgb colour and store it in the randomNumberForColor variable
+  randomNumberForColor = `rgb(${red}, ${green}, ${blue})`;
+  //This is for testing purposes, show the new rgb
+  console.log(randomNumberForColor);
+
+  //return the new rgb
+  return randomNumberForColor;
+}
+
+/***
  * `printQuote` function
 ***/
 
@@ -143,6 +184,9 @@ When the "Show another quote button is clicked, this function will be called and
 function printQuote(){
   //get the quote object using the getRandomQuote function that is already created.
   let chosenQuote = getRandomQuote();
+
+  //get the new rgb from generateRandomColor function 
+  let newBackgroundColor = generateRandomColor();
   
   //This is for testing purpose only. Making sure that a random quote object is passed into chosenQuote
   //console.log(chosenQuote);
@@ -179,6 +223,9 @@ function printQuote(){
 
   //For testing purposes only
   console.log(message);
+
+  //change the background colour on click of the button
+  document.body.style.backgroundColor = newBackgroundColor;
 }
 
 /***
