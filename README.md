@@ -28,4 +28,4 @@ Grading guidelines checklist:
         - Quotes automatically refresh after intervals 
         - Background colour changes to a random colour each time the quote refreshes -> done
 
-I added an extra feature of changing the font to the opposite colour of the background, because I was having trouble with reading the white font with some of the background colours and also the chances are very low, but what if the new background colour is white (255,255,255), then a new colour font would be needed. So I looked up on Google how to create the opposite colour. I thought about using black font, but then the problem of generating a black background is still a possibility.
+I added an extra feature of changing the font to the opposite colour of the background, because I was having trouble with reading the white font with some of the background colours and also the chances are very low, but what if the new background colour is white (255,255,255), then a new colour font would be needed. So I looked up on Google how to create the opposite colour. I thought about using black font, but then the problem of generating a black background is still a possibility.   
