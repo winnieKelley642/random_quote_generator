@@ -88,6 +88,9 @@ function getRandomQuote(){
   // Create a variable and store a random number between 0 and the array's length
   var randomNumber = Math.floor(Math.random() * quotes.length);
 
+  //Testing purpose
+  console.log(`random quote number : ${randomNumber}`);
+
   //get and return a random quote with the bracket notationa and random number
   return quotes[randomNumber];
 }
@@ -109,6 +112,9 @@ function generateRandomColor(){
 
   //Concatenate the three numbers to create a new rgb colour and store it in the randomNumberForColor variable
   randomNumberForColor = `rgb(${red}, ${green}, ${blue})`;
+
+  //Testing purpose
+  console.log(`new background colour: ${randomNumberForColor}`);
 
   //return the new rgb
   return randomNumberForColor;
@@ -132,6 +138,9 @@ function generateRandomColor(){
    // Concatenate the three numbers to create a new rgb colour and store it in the oppostieColor variable
    oppositeColor = `rgb(${red}, ${green}, ${blue})`;
    
+   //Testing purpose
+   console.log(`New font colour: ${oppositeColor}`);
+
    //return this rgb to update the font colour
    return oppositeColor;
  }
