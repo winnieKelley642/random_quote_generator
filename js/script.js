@@ -152,22 +152,22 @@ function printQuote(){
 
   //if the object has the property, it will display the information
   //instructions for this project wants the first two elements (quote and source) to be with <p> tag and leaving the second one without </p>
-  if (chosenQuote.quote != null){
+  if (chosenQuote.quote){
     message = `<p class = "quote"> ${chosenQuote.quote} </p>`;
   }
-  if (chosenQuote.source != null){
+  if (chosenQuote.source){
     message += `<p class = "source"> ${chosenQuote.source}`;
   }
 
   //instructions wants the rest to be concatenate with a <span></span> 
-  if (chosenQuote.citation != null){
+  if (chosenQuote.citation){
     message += `<span class = "citation"> ${chosenQuote.citation}`;
   }
-  if (chosenQuote.year != null){
+  if (chosenQuote.year){
     //the instructions wants the </p> tag to be After the two if statements, concatenate the closing </p> 
     message += `<span class = "year"> ${chosenQuote.year} </p>`;
   }
-  if (chosenQuote.tag != null){
+  if (chosenQuote.tag){
     message += `<p> ${chosenQuote.tag}</p>`;
   }
   //change the quote to the randomly selected quote
